@@ -1,17 +1,17 @@
-{% load static %}
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+        {% block Style %}{% endblock %}
     </head>
     <body>
         <div class="navbar">
-            <h1>There's going to be a navbar</h1>
+            <div class="content">
+                <a href="/"><h1>Home</h1></a>
+            </div>
         </div>
         <div class="wrapper">
             {% block content %}{% endblock %}
         </div>
-        
     </body>
 </html>
