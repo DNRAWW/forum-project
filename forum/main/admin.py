@@ -22,4 +22,11 @@ class ArticleAdminForm(forms.ModelForm):
 class ArticleAdmin(admin.ModelAdmin):
     form = ArticleAdminForm
 
+
 admin.site.register(Article, ArticleAdmin)
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ("article_Id", "user_Id")
+
+
+admin.site.register(Comment, CommentAdmin)

@@ -15,3 +15,9 @@ def section(request, pk):
 def article(request, pk):
     article = Article.objects.get(id=pk)
     return render(request, 'article.html', {'title':article.title, 'article':article})
+
+
+def user(request, pk):
+    user = User.objects.get(id=pk)
+    return render(request, 'user.html', {'title':user.username, 'user':user})
+

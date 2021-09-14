@@ -4,7 +4,22 @@
 {% block Style %} <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}"> {% endblock %}
 {% block content %}
     <div class="content">
+        <a href="/user/{{ article.user_Id.id }}" class="author"><h2><u>Author: {{ article.user_Id }}</u></h2></a>
         <h1 class="title">{{ article.title }}</h1>
         <div class="text">{{ article.text | safe }}</div>
+    </div>
+{% endblock %}
+
+{% block comments %}
+    <div class="wrapper">
+        <h1 class="title-comments">Comments</h1>
+        <div class="comments">
+            {% for comment in article.comments.all %}
+                <div class="comment">
+                    <a href="/user/{{ comment.user_Id.id }}" class="comment-author"><h2>{{ comment.user_Id.username }}</h2></a>
+                    <p>{{ comment.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

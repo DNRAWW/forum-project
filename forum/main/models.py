@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 
 # Create your models here.
@@ -8,8 +9,9 @@ class SectionGroup(models.Model):
     def __str__(self):
         return self.name
 
+
 class Section(models.Model):
-    groupId = models.ForeignKey(SectionGroup, on_delete=models.CASCADE, related_name='sections')
+    group_Id = models.ForeignKey(SectionGroup, on_delete=models.CASCADE, related_name='sections')
     name = models.CharField(max_length=35)
     tags = TaggableManager(blank=True)
     description = models.CharField(max_length=100)
@@ -19,7 +21,8 @@ class Section(models.Model):
 
 
 class Article(models.Model):
-    SectionId = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='articles')
+    user_Id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articles')
+    Section_Id = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='articles')
     title = models.CharField(max_length=35)
     picture = models.ImageField(blank=True)
     text = models.TextField()
@@ -27,3 +30,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    user_Id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='usr_comments')
+    article_Id = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comments')
+    text = models.TextField()
+    time = models.DateField(auto_now=True)
