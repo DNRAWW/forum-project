@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} {{ title }} {% endblock %}
+{% block Style %} <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}"> {% endblock %}
+{% block content %}
+    <form method="POST" action="">
+        <h1>Login</h1>
+        <p>Username</p>
+        {{ form.username }}
+        <p>Password</p>
+        {{ form.password1 }}
+
+        <input type="submit" value="Login" />
+    </form>
+{% endblock %}
