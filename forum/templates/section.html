@@ -3,18 +3,53 @@
 {% block title %} {{ title }} {% endblock %}
 {% block Style %} <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}"> {% endblock %}
 {% block content %}
+    {% if articles.has_next or articles.has_previous %}
+    <div class="pagination">
+        {% if articles.has_previous %}
+            <a href="?page={{ articles.previous_page_number }}" class="prev">Prev Page</a>
+        {% else %}
+            <a href="#" class="prev disabled">Prev Page</a>
+        {% endif %}
+
+        {% if articles.has_next %}
+            <a href="?page={{ articles.next_page_number }}" class="next">Next Page</a>
+        {% else %}
+            <a href="#" class="next disabled">Next Page</a>
+        {% endif %}
+    </div>
+    {% endif %}
+    
     <div class="section-content">
-        <h1 class="section-name">{{section.name}}</h1>
+        <div class="Meta">
+            <h1 class="section-name">{{section.name}}</h1>
+            <a href="/section/{{ section.id }}/new_article"><h1>Create an article</h1></a>
+        </div>
+        
         <div class="articles">
-            {% for article in section.articles.all %}
+            {% for article in articles %}
                 <div class="article">
                     <div class="content">
-                        <a href="/article/{{ article.id }}">
+                        <a href="/article/{{ article.id }}/?page=1">
                             <h1>{{ article.title }}</h1>
                         </a>
                     </div>
                 </div>
             {% endfor %}
         </div>
+        {% if articles.has_next or articles.has_previous%}
+            <div class="pagination">
+                {% if articles.has_previous %}
+                    <a href="?page={{ articles.previous_page_number }}" class="prev">Prev Page</a>
+                {% else %}
+                    <a href="#" class="prev disabled">Prev Page</a>
+                {% endif %}
+
+                {% if articles.has_next %}
+                    <a href="?page={{ articles.next_page_number }}" class="next">Next Page</a>
+                {% else %}
+                    <a href="#" class="next disabled">Next Page</a>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

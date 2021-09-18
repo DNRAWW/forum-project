@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7&7yup=irb@8j5)&fj5g-kc#x2ll)v_s+l@r==2(5x15(xhyx@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'ckeditor',
-    'taggit',
 ]
 
 
@@ -113,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

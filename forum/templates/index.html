@@ -9,7 +9,7 @@
             {% for section in group.sections.all %}
                     <div class="section">
                         <div class="content">
-                            <a href="/section/{{ section.id }}">
+                            <a href="/section/{{ section.id }}/?page=1">
                                 <h1>{{ section.name }}</h1>
                                 <p>{{ section.description }}</p>
                             </a>
