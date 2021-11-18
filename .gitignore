@@ -4,3 +4,4 @@ media
 forum/static/*
 migrations
 db.*
+settings
