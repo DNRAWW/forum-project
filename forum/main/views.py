@@ -17,15 +17,17 @@ def index(request):
 
 def section(request, pk):
     section = Section.objects.get(id=pk)
-    articles = section.articles.all()
+    articles = section.articles.all().order_by('-time')
     paginator = Paginator(articles, 10)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
-    return render(request, 'section.html', {'title':section.name, 'section':section, 'articles':page_obj})
 
-@login_required(login_url='/login')
+    last_page = paginator.num_pages
+    
+    return render(request, 'section.html', {'title':section.name, 'section':section, 'articles':page_obj, 'last_page':last_page})
+
+
 def article(request, pk):
     article = Article.objects.get(id=pk)
 
@@ -36,6 +38,8 @@ def article(request, pk):
 
     new_comment = None
     form = CommentForm
+
+    last_page = paginator.num_pages
 
     if request.method == 'POST':
         user_Id = request.user
@@ -50,18 +54,21 @@ def article(request, pk):
             return redirect(url)
 
     
-    return render(request, 'article.html', {'title':article.title, 'article':article, 'form':form, 'comments':page_obj})
+    return render(request, 'article.html', {'title':article.title, 'article':article, 'form':form, 'comments':page_obj, 'last_page':last_page})
 
 
 def user(request, pk):
     user = User.objects.get(id=pk)
-    articles = user.articles.all()
+    articles = user.articles.all().order_by('-time')
 
     paginator = Paginator(articles, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'user.html', {'title':user.username, 'user':user, 'articles':page_obj})
+    last_page = paginator.num_pages
+
+
+    return render(request, 'user.html', {'title':user.username, 'user':user, 'articles':page_obj, 'last_page':last_page})
 
 
 def register(request):
@@ -127,3 +134,13 @@ def new_article(request, pk):
             new_article.save()
             return redirect('section', pk)
     return render(request, 'new_article.html', {'title':'New article ' + section.name, 'section':section, 'form':form})
+
+# Delete articles for users
+# @login_required(login_url='/login')
+# def article_delete(request, pk):
+#     article = Article.objects.get(id=pk)
+#     groups = SectionGroup.objects.all()
+
+#     if(request.user.id == pk):
+#         article.delete()
+#         return render(request, 'index.html', {'title':'Home page', 'groups':groups})

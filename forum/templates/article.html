@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %} {{ title }} {% endblock %}
-{% block Style %} <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}"> {% endblock %}
+{% block style %} 
+    <link rel="stylesheet" href="{% static 'main/css/article.css' %}">
+{% endblock %}
 {% block content %}
     <div class="content">
         <div class="Meta">
@@ -11,6 +13,13 @@
         
         <h1 class="title">{{ article.title }}</h1>
         <div class="text">{{ article.text | safe }}</div>
+        
+        {% if request.user.id == article.user_Id.id %}
+            <div class="actions">
+                <a href="#">Edit article</a>
+                <a href="#">Delete article</a>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 
@@ -19,25 +28,35 @@
         {% if comments.has_next or comments.has_previous %}
             <div class="pagination">
                 {% if comments.has_previous %}
-                    <a href="?page={{ comments.previous_page_number }}" class="prev">Prev Page</a>
+                    <a href="?page={{ comments.previous_page_number }}" class="prev">Prev</a>
                 {% else %}
-                    <a href="#" class="prev disabled">Prev Page</a>
+                    <a href="#" class="disabled">Prev</a>
+                {% endif %}
+
+                {% if last_page > 2 and comments.has_previous %}
+                    <a href="?page=1">First</a>
+                {% endif %}
+
+                {% if last_page > 2 and comments.has_next %}
+                    <a href="?page={{ last_page }}">Last</a>
                 {% endif %}
 
                 {% if comments.has_next %}
-                    <a href="?page={{ comments.next_page_number }}" class="next">Next Page</a>
+                    <a href="?page={{ comments.next_page_number }}" class="next">Next</a>
                 {% else %}
-                    <a href="#" class="next disabled">Next Page</a>
+                    <a href="#" class="disabled">Next</a>
                 {% endif %}
             </div>
         {% endif %}
         <h1 class="title-comments">Comments</h1>
         <div class="comments">
+            {% if request.user.is_authenticated %}
             <form method="POST" action="" name="comment-form">
                 {% csrf_token %}
                 {{ form.text }}
                 <input type="submit" value="Send">
             </form>
+            {% endif %}
 
             {% for comment in comments %}
                 <div class="comment">
@@ -50,15 +69,23 @@
         {% if comments.has_next or comments.has_previous %}
             <div class="pagination">
                 {% if comments.has_previous %}
-                    <a href="?page={{ comments.previous_page_number }}" class="prev">Prev Page</a>
+                    <a href="?page={{ comments.previous_page_number }}">Prev</a>
                 {% else %}
-                    <a href="#" class="prev disabled">Prev Page</a>
+                    <a href="#" class="disabled">Prev</a>
+                {% endif %}
+
+                {% if last_page > 2 and comments.has_previous %}
+                    <a href="?page=1">First</a>
+                {% endif %}
+
+                {% if last_page > 2 and comments.has_next %}
+                    <a href="?page={{ last_page }}">Last</a>
                 {% endif %}
 
                 {% if comments.has_next %}
-                    <a href="?page={{ comments.next_page_number }}" class="next">Next Page</a>
+                    <a href="?page={{ comments.next_page_number }}">Next</a>
                 {% else %}
-                    <a href="#" class="next disabled">Next Page</a>
+                    <a href="#" class="disabled">Next</a>
                 {% endif %}
             </div>
         {% endif %}

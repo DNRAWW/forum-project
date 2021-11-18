@@ -17,7 +17,7 @@ class ArticleForm(forms.ModelForm):
             widget=forms.TextInput(attrs={
                 'placeholder':'Title'
             }))
-    text = forms.CharField(min_length=5, max_length=3000, widget=CKEditorWidget())
+    text = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Article
