@@ -1,0 +1,140 @@
+.wrapper .content .title {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    font-size: 32px;
+    color:#148090;
+}
+
+.wrapper .content .text p {
+    text-indent: 30px;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.wrapper .content .text h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+.wrapper .content .text p:last-child {
+    margin-bottom: 0;
+}
+
+.wrapper .content .author {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.wrapper .content .name {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wrapper .content>h2 {
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.actions {
+    margin-top: 20px;
+}
+
+.actions a {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.wrapper .title-comments {
+    margin-bottom: 20px;
+}
+
+.wrapper .comments .comment {
+    margin-left: 10px;
+    margin-bottom: 40px;
+    word-wrap:break-word;
+}
+
+.wrapper .comments .comment h2{
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.wrapper .comments .comment p {
+    text-indent: 30px;
+    margin-left: 20px;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.wrapper .comments .comment p:last-child{
+    text-indent: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.wrapper .comments form input{
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #071929;
+    background-color: #1b3144;
+    color: #99aab6;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+.wrapper .comments form input[type="submit"]:hover {
+    background-color: #071929;
+    transition: all 0.3s;
+}
+
+.wrapper .comments form textarea{
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #071929;
+    background-color: #1b3144;
+    color: #99aab6;
+    padding: 10px;
+    font-size: 18px;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form textarea:focus {
+    outline: none;
+}
+
+.wrapper .content .Meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 675px) {
+    .wrapper .content .Meta {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,37 @@
+.wrapper .group {
+    margin-bottom: 30px;
+}
+
+.wrapper .group:last-child {
+    margin-bottom: 0;
+}
+
+.wrapper .group .title {
+    margin-bottom: 30px;
+    border-bottom: solid #0a1216 3px;
+}
+
+.wrapper .group .section {
+    margin-bottom: 30px;
+    border: solid #0d181d 3px;
+    border-radius: 15px;
+    width: 100%;
+    padding: 5px 0px 10px 0px;
+}
+
+.wrapper .group .section:last-child {
+    margin-bottom: 0;
+}
+
+.wrapper .group .section .content {
+    margin-left: 10px;
+}
+
+.wrapper .group .section .content a h1{
+    margin-bottom: 5px;
+}
+
+.wrapper .group .section .content a p {
+    text-indent: 20px;
+}
+

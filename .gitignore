@@ -1,7 +1,6 @@
 venv
 __pycache__
 media
-forum/static/*
 migrations
 db.*
 settings

@@ -1,0 +1,170 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #071929;
+}
+
+a, .collapse a h1 {
+    text-decoration: none;
+    color: #7a9eb4;
+}
+
+a p {
+    color: #99aab6;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.navbar .normal a h1,
+.collapse h1 {
+    text-decoration: none;
+    color: #99aab6;
+}
+
+.navbar {
+    background-color: #172a32;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+}
+
+.navbar .normal{
+    margin: 0 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar .normal a {
+    text-decoration: none;
+    color: #99aab6;
+}
+
+.navbar .collapse {
+    display: none;
+}
+
+.navbar .collapse h1 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.navbar .collapse .content {
+    position: relative;
+}
+
+.navbar .collapse .content a h1{
+    background-color: #101e29;
+}
+
+.wrapper {
+    display: block;
+    background-color: #1f2f3e;
+    color: #99aab6;
+    padding: 30px 30px;
+    margin: 30px 15%;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+}
+
+.wrapper .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    border-top: solid #101e29 3px;
+}
+
+.wrapper .pagination:first-child {
+    border-top: none;
+    border-bottom: solid #101e29 3px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+a.disabled {
+    pointer-events: none;
+    color: #5b7686;
+}
+
+.up {
+    position: fixed;
+    right: 10%;
+    top: 5%;
+
+    font-size: 30px;
+
+    opacity: .8;
+}
+
+.up a {
+    display: none;
+    background-color: #172a32;
+    
+    width: 70px;
+    height: 70px;
+
+    text-align: center;
+    line-height: 70px;
+
+    border-radius: 50%;
+    border: solid #101e29 2px;
+}
+
+@media screen and (max-width: 1247px) {
+    .wrapper {
+        margin: 30px 30px;
+    }
+}
+
+@media screen and (max-width: 795px) {
+    .up {
+        right: 20px;
+        top: 30px;
+    }
+
+    .navbar .normal {
+        display: none;
+    }
+    
+    .navbar .collapse {
+        display: block;
+    }
+
+    .navbar .collapse .content{
+        display: none;
+    }
+
+    .navbar .collapse:hover .content {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .wrapper {
+        margin: 30px 5px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .wrapper {
+        padding: 30px 10px;
+    }   
+}
+
+@media screen and (max-width: 430px) {
+    .wrapper {
+        margin: 30px 0;
+    }
+}
+

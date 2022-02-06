@@ -1,0 +1,61 @@
+.wrapper .new_article{
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper .cke_1 {
+    width: 80%;
+}
+
+.wrapper .new_article form input{
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.wrapper .new_article form input{
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #071929;
+    background-color: #1b3144;
+    color: #99aab6;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.wrapper .new_article form input[type="submit"]{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.wrapper .new_article form h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wrapper .new_article form input:last-child{
+    margin-bottom: 0;
+}
+
+.wrapper .new_article form .django-ckeditor-widget {
+    margin-bottom: 30px;
+}
+
+.wrapper h1.title-new-art {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 930px) {
+    .wrapper .new_article form input{
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+}
